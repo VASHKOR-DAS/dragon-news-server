@@ -18,6 +18,11 @@ app.get('/news-categories', (req, res) => {
     res.send(categories);
 });
 
+// /news route a gele all news pawa jabe
+app.get('/news', (req, res) => {
+    res.send(news);
+})
+
 // category wise khula, jehe2 category wise onk news thakbe tai filter kora hoise
 app.get('/category/:id', (req, res) => {
     const id = req.params.id;
@@ -26,7 +31,7 @@ app.get('/category/:id', (req, res) => {
     if (id === '08') {
         res.send(news);
     } else {
-        const category_news = news.filter(n => n.category_id === id);
+        const category_news = news.filter(n => n.category_id === id); // _id id holo data er id
         res.send(category_news);
     }
 });
